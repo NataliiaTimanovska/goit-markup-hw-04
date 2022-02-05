@@ -92,23 +92,18 @@ ul {
   display: flex;
   margin-left: 93px;
 }
-.header-itim {
+.header-item {
   display: block;
   margin-right: 50px;
 }
 
-.header-itim:last-child {
+.header-item:last-child {
   margin-right: 0;
 }
 .header-link {
   display: flex;
   margin-left: auto;
-}
-.header-link .itim + .itim {
-  margin-left: 50px;
-}
-
-.header-link {
+  padding: 0;
   color: var(--title-text-color);
   font-family: Roboto;
   font-weight: 500;
@@ -117,6 +112,11 @@ ul {
   line-height: 0.88;
   text-decoration: none;
 }
+
+.header-link .item + .item {
+  margin-left: 50px;
+}
+
 .header-link:hover,
 .header-link:focus {
   color: var(--brend-blue);
@@ -132,6 +132,8 @@ ul {
   line-height: 1.14px;
   letter-spacing: 0.02em;
   text-decoration: none;
+  align-items: center;
+  display: flex;
 }
 
 .header-link-tel:hover,
@@ -142,6 +144,17 @@ ul {
 .header-link-mail:hover,
 .header-link-mail:focus {
   color: var(--brend-blue);
+}
+
+.envelope-icon,
+.smartphone-icon {
+  margin-right: 10px;
+  fill: currentColor;
+}
+
+.header-link-mail:hover,
+.header-link-mail:focus {
+  --color4: var(--brend-blue);
 }
 
 /*-----------------------------герой------------*/
@@ -173,7 +186,7 @@ ul {
   color: var(--brend-white);
 }
 
-/* Button */
+/* ----------------------------Button */
 .hero-btn {
   display: inline-block;
   padding: 10px 32px;
@@ -196,12 +209,6 @@ ul {
   padding-bottom: 47px;
 }
 
-/* .advantage-icon {
-  background-color: #f5f4fa;
-  padding: 25px 100px;
-  margin-bottom: 30px;
-} */
-
 .advantage-title {
   position: absolute;
   white-space: nowrap;
@@ -212,6 +219,17 @@ ul {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   margin: -1px;
+}
+
+.advantage-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  width: 270px;
+  height: 120px;
+  background: #f5f4fa;
+  border-radius: 4px;
 }
 
 .advantage-item-title {
@@ -243,21 +261,6 @@ ul {
   margin-right: 0px;
 }
 
-.advantage-item::before {
-  display: block;
-  content: '';
-  height: 120px;
-  background: #f5f4fa;
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 4px;
-  margin-bottom: 30px;
-  background-position: center;
-}
-
-.advantage-item:nth-child(1)::before {
-  background-image: url('../images/icons.svg#icon-antenna-1');
-}
 /* ----------------чем мы занимаемся галерея--- */
 
 .section-gallery {
@@ -351,11 +354,6 @@ ul {
   padding: 0px 32px 0px 32px;
 }
 
-.team-socials-list {
-  display: flex;
-  justify-content: center;
-}
-
 .team-socials-link {
   width: 44px;
   height: 44px;
@@ -417,7 +415,6 @@ ul {
 .filter-button:focus {
   color: var(--first-btn-color);
   background-color: #f5f4fa;
-  border: 1px solid #000000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .filter-button:active {
@@ -433,7 +430,7 @@ ul {
   margin-bottom: 50px;
   justify-content: center;
 }
-.button-list .itim + .itim {
+.button-list .item + .item {
   margin-left: 8px;
 }
 
@@ -451,6 +448,7 @@ ul {
   margin-left: 30px;
   margin-bottom: 30px;
   background-color: #ffffff;
+  cursor: pointer;
 }
 .products-list :nth-child(3n) {
   margin-right: 0px;
@@ -459,6 +457,15 @@ ul {
 .products-list:nth-last-child(-n + 3) {
   margin-bottom: 0px;
 }
+
+.products-list:hover,
+.products-list:focus {
+  background: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
 .products-list-content {
   width: 370px;
   padding-top: 20px;
@@ -499,31 +506,31 @@ ul {
 }
 
 .client-list {
-  margin-top: 50px;
-  margin-bottom: 94px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 94px;
 }
 .client-list :nth-child(6n) {
-  margin-left: 30px;
-}
-
-.client-list-item {
-  margin-left: 30px;
+  margin-right: 0px;
 }
 
 .client-link {
+  margin-right: 30px;
   width: 170px;
   height: 92px;
   max-width: 100%;
+  box-sizing: border-box;
   background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
   border: 1px solid #afb1b8;
-  box-sizing: border-box;
   color: #afb1b8;
 }
 .client-icon {
@@ -531,21 +538,17 @@ ul {
 }
 
 .client-link :hover,
-.client-link :focus {
+.client-list-item :hover {
   color: var(--brend-blue);
+  border-color: var(--brend-blue);
 }
 
-/* .client-list-item :hover,
+.client-link :focus,
 .client-list-item :focus {
+  color: var(--brend-blue);
   border-color: var(--brend-blue);
-} */
+}
 
-/* .client-link :hover {
-  border: 1px solid var(--brend-blue);
-  box-sizing: border-box;
-  border-radius: 4px;
-  outline: none;
-} */
 /*------------------------- Подвал*/
 .footer {
   background-color: var(--brend-fon);
@@ -553,11 +556,13 @@ ul {
   padding-bottom: 60px;
 }
 .logo-footer {
+  display: inline-block;
   color: var(--brend-blue);
   font-family: 'Raleway';
   font-weight: 700;
   font-size: 26px;
   line-height: 1.19;
+  letter-spacing: 0.03em;
   text-decoration: none;
 }
 .logo-footer-color {
@@ -573,6 +578,10 @@ ul {
 
 .address {
   margin-top: 20px;
+}
+.address-list {
+  margin: 0 82px 0 0;
+  padding: 0;
 }
 
 .address-item {
@@ -607,4 +616,51 @@ ul {
 }
 .address-list-link:active {
   color: var(--brend-blue);
+}
+
+.footer-flex {
+  display: flex;
+  align-items: baseline;
+}
+
+.footer-join {
+  margin-bottom: 20px;
+  margin-left: 155px;
+  margin-top: 0px;
+
+  color: var(--brend-white);
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.address-flex {
+  display: flex;
+}
+
+.footer-icons {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.icon {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  box-sizing: border-box;
+  fill: var(--brend-white);
+}
+
+.footer-icons .item + .item {
+  margin-left: 10px;
+}
+
+.footer-icons .icon:hover,
+.footer-icons .icon:focus {
+  background-color: var(--brend-blue);
 }
